@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+  <!--<![endif]-->
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Configuration - Domain Pass-Through for Citrix Receiver for Linux 13.10</title>
+     
+    <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png"> 
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+    <link rel="stylesheet" href="../css/highlight.css">
+    <link rel="stylesheet" href="../css/override.css" type="text/css" />
+    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Configuration";
+      var mkdocs_page_input_path = "configuration.md";
+      var mkdocs_page_url = "/configuration/";
+
+    </script>
+    
+    <script src="../js/jquery-2.1.1.min.js"></script>
+    <script src="../js/modernizr-2.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/highlight.pack.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/custom.js"></script>  
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+    <div class="header-top">
+
+        <div class="header-top-left">
+          <a href="http://developer-docs.citrix.com" class="logo-position"><img height="60" src="../img/citrixlogoblack.png" target="_blank" class="logo-citrix"><span style="color:#000;font-size: 20px;position: relative;top:4px;left:20px;">Developer Documentation</span></a>
+        </div>
+        <div class="header-top-right">
+          <ul>
+
+            <form id="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+             <ul class="header-elements">
+              <li class="list-inline support">
+                <input name="q" id="txtName" type="text" placeholder="Search SDKs" class="searchdocs">
+                <a class="fa fa-search errspan"></a>
+<!---
+              </li>
+             <li> <a href="javascript:void(0);" style="font-size: 22px;position: relative;left: -10px;top: 3px"><i class="fa fa-globe"></i></a></li>
+             </ul>
+             --->
+            </form>
+
+          </ul>
+
+        </div>
+
+    </div>
+    <div class="body">
+      <div class="wy-grid-for-nav">
+
+        
+        <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+          <div class="wy-side-nav-search">
+            <div role="search">
+  <form id ="rtd-search-form-alt" class="wy-form" action="../search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+          </div>
+
+          <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+            <ul class="current">
+              
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="..">Home</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../authentication-types/">Domain Pass-Through authentication types</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 current">
+        <a class="toctree-l1-a current" href="./">Configuration</a>
+		
+            <ul style="margin-left: 0px;padding-left:15px;border-left: 1px solid #b2b2b2;">
+            
+                <li class="toctree-l3"><a href="#configuration" style="padding:0px;position: relative;">&nbsp;Configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#receiver-settings-for-domain-pass-through" style="padding:0px;position: relative;">Receiver settings for Domain Pass-Through</a></li>
+                
+                    <li><a class="toctree-l4" href="#kerberos-installation" style="padding:0px;position: relative;">Kerberos installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#kerberos-configuration" style="padding:0px;position: relative;">Kerberos configuration</a></li>
+                
+                    <li><a class="toctree-l4" href="#test-kerberos-configuration" style="padding:0px;position: relative;">Test Kerberos configuration</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../credential-insertion-sdk/">Credential Insertion SDK</a>
+		
+    </li>
+
+			  
+              
+    <li class="toctree-l1 ">
+        <a class="toctree-l1-a " href="../api-examples/">API Examples</a>
+		
+    </li>
+
+			  
+            </ul>
+          </div>
+          &nbsp;
+        </nav>
+
+        <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+           
+          <div class="wy-nav-content">
+            <div class="rst-content">
+              <!-- <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div> -->
+              <div role="main">
+                <div class="section">
+                <div class="file-format">
+                 <div class="leftAlign" style="float: left;visibility: hidden;">
+                  </div>
+                  <div class="rightAlign" style="float: right;">
+                      <span>Download full document:</span>
+                      <ul class="file-types">
+                        <li><a style="border: 1px solid #EE3D24;padding: 5px;font-size: 11px;color: #EE3D24;border-radius: 5px;font-weight: 700">PDF</a></li>
+                        <li><a style="border: 1px solid #2A579A;padding: 5px;font-size: 11px;color: #2A579A;border-radius: 5px;font-weight: 700">DOCX</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">EMAIL</a></li>
+                        <li><a style="border: 1px solid #495164;padding: 5px;font-size: 11px;color: #495164;border-radius: 5px;font-weight: 700">PRINT</a></li>
+                      </ul>
+                  </div>
+                  </div>
+                   <h1 id="configuration"><a class="toclink" href="#configuration">Configuration</a></h1>
+<p>Domain Pass-Through uses Kerberos to authenticate the user to StoreFront, so Kerberos must be properly enabled and configured on the client before attempting an authentication.</p>
+<h2 id="receiver-settings-for-domain-pass-through"><a class="toclink" href="#receiver-settings-for-domain-pass-through">Receiver settings for Domain Pass-Through</a></h2>
+<p>To enable Domain Pass-Through on the Receiver, the following section must be added to the All_Regions.ini file located in the $ICAROOT/config directory:</p>
+<div class="codehilite"><pre><span></span>[Logon\Local Credentials] UseLocalUserAndPassword=* EnableSSOThruICAFile=* SSOnUserSetting=*
+</pre></div>
+
+
+<p>Important: In addition to the changes to the All_Regions.ini file, each of these configuration options must be specifically allowed by a line in a lockdown profile. If any of these options are missing or disabled in the lockdown profile, Citrix Receiver cannot use Domain Pass-Through authentication. Lockdown profiles prevent parameters from being modified in an ICA file. (Other parameters are protected from by other mechanisms.) For more information on lockdown profiles, see the text in All_Regions.ini.</p>
+<p>Note: Duplicate sections are not allowed in All_Regions.ini. To avoid error messages regarding duplicates, combine sections that have the same name.</p>
+<h2 id="kerberos-installation"><a class="toclink" href="#kerberos-installation">Kerberos installation</a></h2>
+<p>Most Linux distributions come with basic Kerberos functionality present, namely, at least some of the Kerberos-related packages are preinstalled. Consult the package manager of the Linux distribution that you are using in case you need to install any missing package.</p>
+<p>Using Kerberos for Domain Pass-Through requires additional tools that are typically separate from the packages that bring core Kerberos functionality. To take advantage of Domain Pass-Through, you must install the package that includes the tools <code>kinit</code>, <code>klist</code> and <code>kdestroy</code>.
+ For example, on Ubuntu 14.04 LTS, those programs can be installed with the package <code>krb5-user</code>.
+ Moreover, if the client has to be configured to obtain Kerberos tickets using public-key credentials such as X.509 certificates or a smart card, any package that allows Kerberos pre-authentication must be installed as well. Again, for reference, the name of the package that enables such functionality on an Ubuntu 14.4 LTS distribution is <code>krb5-pkinit</code>.</p>
+<h2 id="kerberos-configuration"><a class="toclink" href="#kerberos-configuration">Kerberos configuration</a></h2>
+<p>To use Kerberos to authenticate to StoreFront, a ticket-granting ticket (TGT) must first be obtained from the key distribution center (KDC) of the domain.
+Before requesting a TGT, Kerberos must be configured.
+ The configuration file is typically found at: <code>/etc/krb5.conf</code></p>
+<p>This section covers only the basic settings required to enable Kerberos authentication for a single-domain scenario. If your environment is more complex, or if you need a more fine-tuned setup, see the official Kerberos documentation.</p>
+<h3 id="basic-configuration-example"><a class="toclink" href="#basic-configuration-example">Basic configuration example</a></h3>
+<p>The following configuration example assumes that the KDC resides on the domain controller:</p>
+<div class="codehilite"><pre><span></span>[libdefaults]     default_realm = YOURDOMAIN.NET
+[realms]     YOURDOMAIN.NET = {         kdc = yourdc.yourdomain.net
+        admin_server = yourdc.yourdomain.net
+        default_domain = YOURDOMAIN.NET
+    }
+[domain_realm]
+    .yourdomain.net = YOURDOMAIN.NET
+    yourdomain.net = YOURDOMAIN.NET
+</pre></div>
+
+
+<h3 id="smart-card-configuration-example"><a class="toclink" href="#smart-card-configuration-example">Smart card configuration example</a></h3>
+<p>The following configuration example allows for a TGT to be requested using a smart card instead of domain credentials. Again the example assumes that the KDC resides on the domain controller:</p>
+<div class="codehilite"><pre><span></span>[libdefaults]     default_realm = YOURDOMAIN.NET
+[realms]     YOURDOMAIN.NET = {         kdc = yourdc.yourdomain.net
+        admin_server = yourdc.yourdomain.net
+        default_domain = YOURDOMAIN.NET
+        pkinit_eku_checking = kpServerAuth
+        pkinit_kdc_hostname = yourdc.yourdomain.net
+        pkinit_anchors = FILE:/path/to/your/root/certificate.pem
+        pkinit_identities = PKCS11:/path/to/your/PKCS11module.so
+    }
+[domain_realm]
+    .yourdomain.net = YOURDOMAIN.NET
+    yourdomain.net = YOURDOMAIN.NET
+</pre></div>
+
+
+<p>Important: the name specified under <code>pkinit_kdc_hostname</code> must match exactly the name of your domain controller and is case-sensitive.
+ The value of the field <code>pkinit_anchors</code> is the absolute path of the root PEM certificate to use for the connection to the host specified at <code>pkinit_kdc_hostname</code>.
+ The value of the field <code>pkinit_identities</code> is the absolute path of the PKCS11 module to use to read the contents of the smart card you intend to use to get the Kerberos TGT. For example, on a typical 64 bit Ubuntu 14.04 LTS installation, the module can be found at <code>/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so</code>.</p>
+<p>Any change to the Kerberos configuration file takes effect immediately, with no need to restart the service between changes.</p>
+<h2 id="test-kerberos-configuration"><a class="toclink" href="#test-kerberos-configuration">Test Kerberos configuration</a></h2>
+<p>To test the Kerberos configuration, try to obtain a TGT from the KDC. From the command line, execute:</p>
+<p><code>kinit -f username</code></p>
+<p>or:</p>
+<p><code>kinit -f username@YOURDOMAIN.NET</code></p>
+<p>where <code>username</code> is the name of the user for whom you want to get the TGT. If the domain is not specified, the domain indicated in the configuration file (at <code>default_realm</code>) is used by default.
+ The switch <code>-f</code> means that you are requesting a forwardable ticket. This might be useful when using the requested TGT to attempt a Kerberos authentication to a remote domain.
+ The command then asks you to provide credentials to complete the operation. Depending on your configuration, those can be either domain credentials or the PIN of the smart card.</p>
+<p>To verify whether the previous command succeeded, execute:</p>
+<p><code>klist</code></p>
+<p>The above command shows the contents of the ticket cache. If the <code>kinit</code> request was successful you should see that a TGT had been issued:</p>
+<div class="codehilite"><pre><span></span>Ticket cache: FILE:/tmp/krb5cc_1000
+Default principal: username@YOURDOMAIN.NET
+
+Valid starting     Expires            Service principal
+09/08/16 10:33:08  09/08/16 20:33:08  krbtgt/YOURDOMAIN.NET@YOURDOMAIN.NET renew until 10/08/16 10:33:00
+</pre></div>
+
+
+<p>If you can see something like the above, then Kerberos has been configured correctly and it is ready to use.</p>
+<p>To remove all the tickets from the cache, use the command:</p>
+<p><code>kdestroy</code></p>
+<p>Once you have obtained the TGT and enabled Domain Pass-Through authentication on StoreFront, you can launch Citrix Receiver and verify that the user for whom you requested a TGT gets logged on automatically and apps/desktops are enumerated:</p>
+<p><img alt="" src="../storefront-home.png" /></p>
+<p>To double-check that the Kerberos authentication was successful, launch the klist command again to see if you’ve been issued a ticket for the machine where StoreFront is installed:</p>
+<div class="codehilite"><pre><span></span>Ticket cache: FILE:/tmp/krb5cc_1000 Default principal: username@YOURDOMAIN.NET
+
+Valid starting     Expires            Service principal 09/08/16 10:33:08  09/08/16 20:33:08  krbtgt/YOURDOMAIN.NET@YOURDOMAIN.NET         renew until 10/08/16 10:33:00 09/08/16 10:34:32  10/08/16 20:33:08  HTTP/sf.yourdomain.net@YOURDOMAIN.NET         renew until 10/08/16 10:33:00
+</pre></div>
+
+
+<p>Notice the presence of a second ticket in the output above.</p>
+<p>To launch an app/desktop, you must provide a valid set of credentials using the Credential Insertion SDK, as described in the next section.</p> 
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+    <!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span class="prev"><a href="../authentication-types/"><i class="fa fa-angle-left"></i> Previous</a></span>
+      
+      
+        <span class="next"><a href="../credential-insertion-sdk/">Next <i class="fa fa-angle-right"></i></a></span>
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+    <footer class="site-footer">
+      <div class="wrapper">
+          <p align="right">© 1999-2018 Citrix Systems, Inc. All rights reserved. | <a href="http://www.citrix.com/about/legal/legal-notice.html">Terms of Use | <a href="#" onclick="event.preventDefault(); window.evidon.notice.showConsentTool();">Cookie Preferences</a></a></p>
+      </div>
+  </footer>
+  <script type="text/javascript">
+      (function (id) {
+          function append(scriptid, url, async) {
+              var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+              if (!f) f = d.head;
+              var s = d.createElement(sn);
+              s.async = true;
+              s.id = scriptid;
+              s.src = url;
+              f.parentNode.insertBefore(s, f);
+          }
+  
+          function getRootDomain() {
+              var parts = window.location.hostname.split('.');
+              if (parts.length === 2) rootDomain = parts[0];
+              else if (parts.length > 2) {
+                // see if the next to last value is a common tld
+                var part = parts[parts.length - 2];
+                if (part === 'com' || part === 'co') {
+                  rootDomain = parts[parts.length - 3]; // go back one more
+                }
+                else {
+                  rootDomain = part;
+                }
+              }
+  
+            return rootDomain;
+          }
+  
+          window.evidon = {};
+          window.evidon.id = id;
+          var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+          append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+          append('evidon-location', cdn + 'geo/country.js', true);
+          append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+          if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + '/settings.js', true);
+  
+          window.evidon.priorConsentCallback = function () {
+              // add the tags which need to wait for prior consent
+              // here.  This should be all your advertising tags and
+              // probably most of your social and tracking tags.
+          }
+      })(3010);
+  </script>
+  </body>
+
+</html>
