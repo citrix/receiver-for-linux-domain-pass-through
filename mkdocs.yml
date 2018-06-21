@@ -1,7 +1,6 @@
-site_name: Citrix StoreFront Store Services API 3.0
-site_description: Citrix StoreFront Store Services API 3.0
+site_name: Domain Pass-Through for Citrix Receiver for Linux 13.10
+site_description: Domain Pass-Through for Citrix Receiver for Linux 13.10
 theme_dir: citrix-sdk
-use_directory_urls: True
 markdown_extensions:
   - admonition
   - codehilite
@@ -9,18 +8,8 @@ markdown_extensions:
      anchorlink: True
 pages:
 
-- Scope: index.md
-- General Behavior: general-behavior.md
-- Resource Enumeration: resource-enumeration.md
-- Launch: launch.md
-- Images and Icons: images-and-icons.md
-- Machine Power Off: machine-power-off.md
-- Rade Service: rade-service.md
-- Subscriptions Service: subscriptions-service.md
-- Citrix-Online Integration Feature (Generic Applications): citrix-online-integration-feature.md
-- Sessions Service: sessions-service.md
-- Assign Desktop Service: assign-desktop-service.md
-- Endpoints Service: endpoints-service.md
-- Discovery Service: discovery-service.md
-- Accounts Service: accounts-service.md
-- Appendix: appendix.md
+- Home: index.md
+- Domain Pass-Through authentication types: authentication-types.md
+- Configuration: configuration.md
+- Credential Insertion SDK: credential-insertion-sdk.md
+- API Examples: api-examples.md
